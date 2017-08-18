@@ -1,8 +1,8 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
-
 
 module.exports = {
   entry: {
@@ -20,6 +20,16 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   module: {
+    loaders: [
+        {
+            test: /\.js$/,
+            exclude: /(node_modules)/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015']
+            }
+        }
+    ],
     rules: [
       {
         test: /\.css$/,
