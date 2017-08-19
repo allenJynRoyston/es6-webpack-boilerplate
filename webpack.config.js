@@ -3,21 +3,25 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
+const Uglify = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   entry: {
-    helloworld: './src/components/helloworld/helloworld.js',
+    helloworld: './src/components/helloworld/helloworld',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management',
-      script: 'src="http://localhost:35729/livereload.js"'
+      title: 'Webpack Demo'
     }),
-    new LiveReloadPlugin()
+    new LiveReloadPlugin(),
+    new Uglify({
+      sourceMap: true
+    }),
+    new webpack.SourceMapDevToolPlugin()
   ],
   output: {
     filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist/source')
   },
   module: {
     loaders: [
