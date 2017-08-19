@@ -1,4 +1,4 @@
-# Phaser - Webpack + ES6 Boilerplate
+# Webpack + ES6 Boilerplate
 
 ### Live Preview
 [Click here](https://es6-webpack-boilerplate.herokuapp.com/)
