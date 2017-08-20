@@ -3,7 +3,7 @@ import RiotImg from './riot240x.png';
 
 function component() {
   var element = document.createElement('div');
-  element.innerHTML = '<h1>Hello World</h1><br>'
+  element.innerHTML = '<h1>Hello World!</h1><br>'
   element.classList.add('font-red');
 
   let myIcon = new Image();

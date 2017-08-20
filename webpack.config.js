@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const Uglify = require("uglifyjs-webpack-plugin");
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -13,6 +14,22 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Webpack Demo'
     }),
+    new FaviconsWebpackPlugin({
+      logo: './favicon/favicon.png',
+      prefix: 'icons/',
+      icons: {
+        android: false,
+        appleIcon: false,
+        appleStartup: false,
+        coast: false,
+        favicons: true,
+        firefox: false,
+        opengraph: false,
+        twitter: false,
+        yandex: false,
+        windows: false
+      }
+    }),
     new LiveReloadPlugin(),
     new Uglify({
       sourceMap: true
@@ -20,7 +37,7 @@ module.exports = {
     new webpack.SourceMapDevToolPlugin()
   ],
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.min.js',
     path: path.resolve(__dirname, 'dist/source')
   },
   module: {
